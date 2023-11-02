@@ -145,8 +145,9 @@ plt.xlabel('Arsenic Concentration (ppb)')
 plt.ylabel('Count')
 plt.title('Arsenic Concentrations in Apple Juice')
 plt.grid(True)
-plt.show()
+plt.show()      # Display histogram
 
+# Sort data by year
 sorted_data = {
     2019: [ 1.49,
             3.05,
@@ -216,10 +217,15 @@ sorted_data = {
             8 ]
 }
 
-confidence_level = 0.95
+confidence_level = 0.95     # Set confidence level to 95%
 
-print('mean: ', np.mean(concentrations), ' - std: ', np.std(concentrations, ddof=1))
+# Print overall dataset stats
+print()
+print('Mean: ', np.mean(concentrations))
+print('Standard Dev: ', np.std(concentrations, ddof=1))
+print()
 
+# Calculate confidence interval for each year
 for year, data in sorted_data.items():
     n = len(data)
     mean = np.mean(data)
@@ -228,7 +234,7 @@ for year, data in sorted_data.items():
     m_o_e = t_critical * (standard_dev / np.sqrt(n))    # Margin of Error
     confidence_interval = (mean - m_o_e, mean + m_o_e)
 
-    print(f"Year {year} - Confidence Interval: {confidence_interval} ........... Mean: {mean} ........... Std: {standard_dev} ............ n: {n}")
+    # Print stats
+    print("Year %4d - Confidence Interval: %40s  Mean: %5f  Std: %5f  n: %2d" % (year, confidence_interval, mean, standard_dev, n))
 
-
-
+print()
