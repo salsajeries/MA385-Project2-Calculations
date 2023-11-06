@@ -2,7 +2,6 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
 from scipy import stats
 
 np.set_printoptions(suppress=True)      # Turn off scientific notation format for data output
